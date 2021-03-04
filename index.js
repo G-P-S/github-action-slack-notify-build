@@ -36,6 +36,10 @@ const { buildSlackAttachments, formatChannelName } = require('./src/utils');
       args.ts = messageId;
     }
 
+    if (github.status === 'FAILED') { // hard notify upon failure
+      args.text = '@here'
+    }
+
     const response = await slack.chat[apiMethod](args);
 
     core.setOutput('message_id', response.ts);
