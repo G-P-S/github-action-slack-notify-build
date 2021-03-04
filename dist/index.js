@@ -1099,6 +1099,14 @@ const { buildSlackAttachments, formatChannelName } = __webpack_require__(543);
       args.ts = messageId;
     }
 
+    args.text = 'yo! @here there was a failure';
+
+    if (status === 'FAILED') {
+      // hard notify upon failure
+      args.text = 'hey @here there was a failure';
+      status = 'FAAILED';
+    }
+
     const response = await slack.chat[apiMethod](args);
 
     core.setOutput('message_id', response.ts);
@@ -10039,7 +10047,7 @@ function buildSlackAttachments({ status, color, github }) {
           short: true,
         },
         {
-          title: 'Status',
+          title: 'Statusss',
           value: status,
           short: true,
         },
