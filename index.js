@@ -36,7 +36,7 @@ const { buildSlackAttachments, formatChannelName } = require('./src/utils');
       args.ts = messageId;
     }
 
-    if (github.status === 'FAILED') {
+    if (status === 'FAILED') {
       // hard notify upon failure
       args.text = 'hey @here there was a failure';
       status = 'FAAILED';
