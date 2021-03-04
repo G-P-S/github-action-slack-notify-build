@@ -36,12 +36,11 @@ const { buildSlackAttachments, formatChannelName } = require('./src/utils');
       args.ts = messageId;
     }
 
-    args.text = 'yo! @here there was a failure';
-
+    // hard notify upon failure
     if (status === 'FAILED') {
-      // hard notify upon failure
       args.text = 'hey @here there was a failure';
-      status = 'FAAILED';
+    } else {
+      args.text = 'yo! @here there was a failure';
     }
 
     const response = await slack.chat[apiMethod](args);
