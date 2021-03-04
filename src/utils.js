@@ -38,7 +38,7 @@ function buildSlackAttachments({ status, color, github }) {
           short: true,
         },
         {
-          title: 'StatuS',
+          title: 'Statusss',
           value: status,
           short: true,
         },
